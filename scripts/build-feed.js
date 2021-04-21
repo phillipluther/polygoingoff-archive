@@ -2,13 +2,18 @@ const PodcastFeed = require('podcast');
 const path = require('path');
 const fs = require('fs/promises');
 
+const TIMER_LABEL = 'Successfully built podcast RSS feed';
+const DEST_DIR = path.join(__dirname, '../dist');
+const FEED_FILE = path.join(DEST_DIR, 'feed.xml');
+const AUDIO_SRC_DIR = path.join(__dirname, '../../mp3');
+
 module.exports = async function() {
-  console.log('Building podcast RSS feed');
+  console.time(TIMER_LABEL);
   try {
     const feed = new PodcastFeed({
       title: 'Polygoing Off',
       description: 'A short-lived weekly podcast exploring pop culture and the uncanny similarities between real life situations and our favorite video games.',
-      feed_url: 'https://polygoingoff.com/feed/podcast/',
+      feed_url: 'https://polygoingoff.com/feed.xml',
       site_url: 'https://polygoingoff.com',
       image_url: 'https://polygoingoff.com/images/podcastArt.jpg',
       author: 'Phillip Luther',
@@ -41,17 +46,23 @@ module.exports = async function() {
       itunesImage: 'https://polygoingoff.com/images/podcastArt.jpg',
     });
 
-    const DEST_DIR = path.join(__dirname, '../dist');
-    const FEED_FILE = path.join(DEST_DIR, 'feed.xml');
-
     await fs.rmdir(DEST_DIR, { recursive: true });
     await fs.mkdir(DEST_DIR);
 
+    const audioFiles = await fs.readdir(AUDIO_SRC_DIR);
+
+    audioFiles.forEach((audioFile) => {
+      // only deal with prefixed files, which were "officially" part of the podcast
+      if (/polygoingOff/.test(audioFile)) {
+        console.log('FILE:', audioFile);
+      }
+    });
+    
     await fs.writeFile(FEED_FILE, feed.buildXml());
 
-
-    console.log('DONE!');
+    console.timeEnd(TIMER_LABEL);
   } catch (err) {
+    console.log('Failed to build podcast RSS feed');
     console.error(err);
   }
 }
