@@ -6,8 +6,6 @@ This is a quick/dirty static site/RSS builder to archive that old podcast. The H
 
 Audio source files are not checked in for size considerations and because they're on archive.org.
 
-## Isn't This a Bit Overkill
+## Isn't this a bit over-engineered?
 
-Build a mini-static site ... build the RSS feed ... read metadata from the files ... isn't this all a bit over-engineered?
-
-No, this isn't _a bit_ over-engineered; this is over-engineered AF. Frankly, though, messing around with `fs` and figuring out how to build the RSS feed is way more fun. I couldn't bare the thought of simply copy/pasting the feed from the podcast's old WordPress instance, nor could I put myself through the monotonous task of duplicating 35 some odd HTML articles and manually updating titles, descriptions, etc.
+No, it's _way_ over-engineered. In the temporary absence of other projects, though, building this simple-made-complicated thing was more fun than copy/pasting markup and assets from the old WordPress instance.

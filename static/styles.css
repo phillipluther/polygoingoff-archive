@@ -1,0 +1,29 @@
+html {
+  font-size: 1em;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  min-height: 100vh;
+  color: #a6a4a2;
+}
+
+html,
+body {
+  background: #0d0b09;
+}
+
+a {
+  color: #d9d881;
+}
+
+header,
+main,
+footer {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+

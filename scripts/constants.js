@@ -8,6 +8,7 @@ const constants = {
 };
 
 constants.FEED_FILE = path.join(constants.DIST_DIR, 'feed.xml');
-constants.IMAGE_DIST_PATH = new URL('images', constants.DIST_PATH),
+constants.HTML_FILE = path.join(constants.DIST_DIR, 'index.html');
+constants.IMAGE_DIST_PATH = new URL('images', constants.DIST_PATH);
 
 module.exports = constants;

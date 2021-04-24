@@ -1,7 +1,7 @@
 const fs = require('fs/promises');
 const path = require('path');
 const mm = require('music-metadata');
-const { AUDIO_SRC_DIR } = require('./constants');
+const { AUDIO_SRC_DIR, AUDIO_DIST_PATH } = require('./constants');
 
 async function getEpisodeDetails() {
   try {
@@ -18,6 +18,7 @@ async function getEpisodeDetails() {
           return {
             filename,
             size,
+            url: new URL(filename, AUDIO_DIST_PATH),
             ...parsedDetails,
           };
         })());
@@ -32,13 +33,3 @@ async function getEpisodeDetails() {
 
 const episodeDetails = getEpisodeDetails();
 module.exports = () => episodeDetails;
-// const episodeDetails = getEpisodeDetails();
-
-// module.exports = async function(forceFetch = false) {
-//   try {
-//     return episodeDetails;
-    
-//   } catch (err) {
-//     console.error(err);
-//   }
-// };

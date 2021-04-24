@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ site_url }}">
+    <meta property="og:image" content="{{ site_url }}/images/podcastArt.jpg">
+
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <meta name="theme-color" content="#0d0b09">
+  </head>
+  <body>
+    <header>
+      <img class="header-image" aria-hidden="true" alt="" src="images/polygoingOff_siteHeader.png">
+      <h1>{{ title }}</h1>
+      <p class="subtitle">{{ description }}</p>
+      <hr>
+    </header>
+
+    <main>
+      <h2>Episode Listing</h2>
+    
+      <ol class="episodes">
+        {{#each episodeDetails }}
+        <li>
+          <article class="episode">
+            <h3>{{ title }}</h3>
+            <p class="date">{{ date }}</p>
+            <p>{{ subtitle }}</p>
+            <a href="{{ url }}" class="download" download>Download Episode</a>
+          </article>
+        </li>
+        {{/each}}
+      </ol>
+    </main>
+
+    <footer>
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" class="footer-disclaimerBadge" tabindex="-1">
+        <img alt="Creative Commons License" style="border-width:0" class="footer-disclaimerBadge" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png">
+      </a>
+      <p>All blog, podcast and video content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a></p>
+      <p>All opinions expressed in these episodes and on this site belong to me, Phillip Luther, and do not necessarily reflect the views and opinions of any affiliated organizations or corporate entities.</p>
+    </footer>
+  </body>
+</html>
