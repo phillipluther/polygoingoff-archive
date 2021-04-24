@@ -26,8 +26,7 @@ module.exports = async function() {
       language: 'en',
       pubDate: 'Thu, 1 Apr 2021 00:00:00 +0000',
       itunesAuthor: 'Phillip Luther (aka, Polygoing)',
-      itunesSubtitle: 'I am a sub title',
-      itunesSummary: 'A short-lived weekly podcast exploring pop culture and the uncanny similarities between real life situations and our favorite video games.',
+      itunesSubtitle: 'A short-lived weekly podcast exploring pop culture and the uncanny similarities between real life situations and our favorite video games.',
       itunesOwner: {
         name: 'Phillip Luther (aka, Polygoing)',
         email: 'phil@polygoingoff.com',
