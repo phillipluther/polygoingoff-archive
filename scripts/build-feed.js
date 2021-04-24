@@ -1,12 +1,10 @@
 const PodcastFeed = require('podcast');
 const path = require('path');
 const fs = require('fs/promises');
-const mm = require('music-metadata');
 const getEpisodeDetails = require('./get-episode-details');
 const getPodcastDetails = require('./get-podcast-details');
 const {
   FEED_FILE,
-  AUDIO_DIST_PATH,
   AUDIO_SRC_DIR,
   IMAGE_DIST_PATH,
 } = require('./constants');

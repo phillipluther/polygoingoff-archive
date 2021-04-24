@@ -5,7 +5,6 @@ const { AUDIO_SRC_DIR, AUDIO_DIST_PATH } = require('./constants');
 
 async function getEpisodeDetails() {
   try {
-    console.log('Running');
     const audioFiles = await fs.readdir(AUDIO_SRC_DIR);
     
     return Promise.all(audioFiles.reduce((details, filename) => {
