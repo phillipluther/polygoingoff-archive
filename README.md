@@ -1,3 +1,6 @@
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6eef257f-1e05-4c79-8a2f-f1469ea41564/deploy-status)](https://app.netlify.com/sites/brave-kowalevski-54a85a/deploys)
+
 # polygoingoff-archive
 
 Once upon a time I had a podcast. It podfaded in early 2017. Since then, I've been paying a few bucks a month to keep the thing online. That few bucks a month adds up!
