@@ -23,7 +23,6 @@ module.exports = async function() {
 
     console.timeEnd(TIMER_LABEL);
   } catch (err) {
-    console.log('Failed to build podcast HTML');
-    console.error(err);
+    console.error('[BUILD FAILURE] Could not build podcast HTML\n', err);
   }
 }

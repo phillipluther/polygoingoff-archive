@@ -28,7 +28,8 @@ module.exports = async function() {
         date: trackData.date,
         enclosure: {
           url: trackData.url,
-          file,
+          size: trackData.size,
+          type: 'audio/mpeg',
         },
         itunesAuthor: trackData.artist,
         itunesImage: new URL('podcastArt.jpg', IMAGE_DIST_PATH),
@@ -42,8 +43,7 @@ module.exports = async function() {
 
     console.timeEnd(TIMER_LABEL);
   } catch (err) {
-    console.log('Failed to build podcast RSS feed');
-    console.error(err);
+    console.error('[BUILD FAILURE] Could not build podcast RSS feed\n', err);
   }
 }
 
