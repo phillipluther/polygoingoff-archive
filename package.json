@@ -10,6 +10,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Phillip Luther <dev@phillipluther.com>",
+  "engines": {
+    "node": "14.16.0"
+  },
   "license": "UNLICENSED",
   "dependencies": {
     "handlebars": "^4.7.7",

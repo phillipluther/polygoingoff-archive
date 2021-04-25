@@ -15,7 +15,6 @@ module.exports = async function() {
   console.time(TIMER_LABEL);
   try {
     const feed = new PodcastFeed(getPodcastDetails());
-
     const episodeDetails = await getEpisodeDetails();
 
     episodeDetails.forEach((trackData) => {

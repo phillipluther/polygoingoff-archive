@@ -5,6 +5,7 @@ const constants = {
   AUDIO_DIST_PATH: 'https://archive.org/details/polygoingoff-podcast/',
   DIST_DIR: path.join(__dirname, '../dist'),
   DIST_PATH: 'https://polygoingoff.com',
+  EPISODE_JSON_FILE: path.join(__dirname, '../episodes.json'),
 };
 
 constants.FEED_FILE = path.join(constants.DIST_DIR, 'feed.xml');
