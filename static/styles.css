@@ -48,10 +48,23 @@ hr {
   height: auto;
 }
 
-.episodes {
+.episodes,
+.social-links {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.social-links {
+  display: flex;
+}
+
+.social-link img {
+  display: block;
+  height: 32px;
+  width: auto;
+  padding: 8px 0;
+  margin: 16px 24px 0 0;
 }
 
 .episode {
@@ -60,6 +73,15 @@ hr {
   background: #161412;
 }
 
-
-
-
+.page-title {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important;
+}

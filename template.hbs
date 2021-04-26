@@ -21,14 +21,30 @@
   <body>
     <header>
       <img class="header-image" aria-hidden="true" alt="" src="images/polygoingOff_siteHeader.png">
-      <h1>{{ title }}</h1>
+      <h1 class="page-title">{{ title }}</h1>
       <p class="subtitle">{{ description }}</p>
+      <ul class="social-links">
+        <li>
+          <a href="feed.xml" title="RSS Feed" class="social-link">
+            <img src="images/rss-icon.png" alt="Subscribe with RSS">
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/c/Polygoing" title="Polygoing Off on YouTube" class="social-link">
+            <img src="images/youtube-social-icon.png" alt="Polygoing Off on YouTube">
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/polygoing" title="Polygoing Off on Twitter" class="social-link">
+            <img src="images/twitter-social-icon.png" alt="@polygoing on Twitter">
+          </a>
+        </li>
+      </ul>
       <hr>
     </header>
 
     <main>
       <h2>Episode Listing</h2>
-      <p><a href="feed.xml">RSS Feed</a></p>
       <ol class="episodes">
         {{#each episodeDetails }}
         <li>
