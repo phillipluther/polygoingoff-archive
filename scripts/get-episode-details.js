@@ -8,6 +8,15 @@ const path = require('path');
 const mm = require('music-metadata');
 const { AUDIO_SRC_DIR, AUDIO_DIST_PATH, EPISODE_JSON_FILE } = require('./constants');
 
+function getDateFromTitle(filename) {
+  // super sloppy regex to parse the date from the file name; could optimize this, but
+  // it runs so infrequently ... 
+  const dateMatch = filename.match(/_[episode|update][0-9a-z]*_(.*)\.mp3$/);
+  const parsedDateString = dateMatch ? Date.parse(dateMatch[1]) : Date.now();
+
+  return parsedDateString;
+}
+
 async function buildEpisodeJSON() {
   try {
     const audioFiles = await fs.readdir(AUDIO_SRC_DIR);
@@ -18,20 +27,26 @@ async function buildEpisodeJSON() {
           const audioSource = path.join(AUDIO_SRC_DIR, filename);
           const { common: parsedDetails } = await mm.parseFile(audioSource);
           const { size } = await fs.stat(audioSource);
+          const date = new Date(Date.parse(parsedDetails.date) || getDateFromTitle(filename));
 
           return {
             filename,
             size,
             url: new URL(filename, AUDIO_DIST_PATH),
             ...parsedDetails,
+            date,
+            friendlyDate: date.toUTCString(),
           };
         })());
       }
 
       return details;
-    }, []));
+    }, []));    
 
-    await fs.writeFile(EPISODE_JSON_FILE, JSON.stringify(episodeDetails));
+    await fs.writeFile(
+      EPISODE_JSON_FILE,
+      JSON.stringify(episodeDetails.sort((a, b) => a.date > b.date ? 1 : -1)),
+    );
   } catch (err) {
     console.error('Failed to generate episode JSON file\n', err);
   }
